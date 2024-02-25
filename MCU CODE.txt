@@ -3,10 +3,8 @@
 
 
 void setup() {
-  Serial.begin(2400);  //Baud rate is as per the requirements
-  Serial.setTimeout(10000); // Set timeout for receiving data
-  // Initialize EEPROM with the total size you want to use
-  EEPROM.begin(512);
+  Serial.begin(2400);  //   Baud rate is as per the requirements
+  Serial.setTimeout(10000); //  Timeout for receiving data
 }
 
 void loop() {
@@ -36,7 +34,7 @@ void writeDataToEEPROM(String data) {
     // Serial.println("Transmission speed: " + String(transmissionSpd) + " bytes per second");
   }
   EEPROM.put(EEPROM_ADDRESS + length, '\0');
-  EEPROM.commit(); // You must commit after each write
+  EEPROM.commit(); // commit after each write
 }
 
 String readDataFromEEPROM() {
