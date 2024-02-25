@@ -1,0 +1,32 @@
+import serial
+import time
+
+# Define the serial port and baud rate
+SERIAL_PORT = 'COM7'  # Change this to your serial port
+BAUD_RATE = 2400
+
+# Create a serial object
+ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=100)
+
+try:
+    # Open the serial port
+    if not ser.is_open:
+        ser.open()
+
+    # Send data
+    start_time = time.time()
+    data_to_send = input("Enter text to send: ")
+    print("Sending data:", data_to_send)
+    ser.write(data_to_send.encode())
+    
+    data_received = ser.readline().decode().strip()
+    end_time = time.time()
+    
+    print(data_received)
+    transmission_time = end_time - start_time
+    print("Transmission speed:", len(data_to_send) / transmission_time, "bytes per second")
+
+finally:
+    # Close the serial port
+    if ser.is_open:
+        ser.close()
