@@ -1,8 +1,9 @@
 #include <EEPROM.h>
-#define EEPROM_ADDRESS 0
+#define EEPROM_ADDRESS 0 // addressing starting from first bit
+
 
 void setup() {
-  Serial.begin(2400);
+  Serial.begin(2400);  //Baud rate is as per the requirements
   Serial.setTimeout(10000); // Set timeout for receiving data
   // Initialize EEPROM with the total size you want to use
   EEPROM.begin(512);
