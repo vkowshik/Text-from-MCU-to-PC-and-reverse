@@ -2,7 +2,7 @@ import serial
 import time
 
 # Define the serial port and baud rate
-SERIAL_PORT = 'COM7'  # Change this to your serial port
+SERIAL_PORT = 'COM5' 
 BAUD_RATE = 2400
 
 # Create a serial object
